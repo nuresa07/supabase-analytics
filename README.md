@@ -34,171 +34,189 @@ npm run start:dev
 - **Fitur Utama**:
   - Analytics visualization (charts & metrics)
   - User authentication (Supabase)
-  - Admin panel untuk manage analytics
-  - Blog & FAQ management interface
-  - Changelog viewer
-  - CSV export untuk data
-- **Port**: Default 5173
+   # Analytics Dashboard — Fullstack Application
 
-**Setup:**
-```bash
-cd dashboard-analytics
-npm install
-npm run dev
-```
+  This repository contains a fullstack analytics application that integrates a NestJS backend, a React + Vite frontend dashboard, and a Sanity CMS for content management (blog, FAQ, changelog).
 
-### CMS (`cms/`)
-- **Tech Stack**: Sanity Studio
-- **Content Types**:
-  - Blog Posts
-  - FAQ (Frequently Asked Questions)
-  - Authors
-  - Changelog entries
-- **Access**: Sanity Studio interface
+  ## Project Structure
 
-**Setup:**
-```bash
-cd cms
-npm install
-npx sanity start
-```
+  ```
+  supabase/
+  ├── backend-analytics/        # API backend (NestJS + TypeScript)
+  ├── dashboard-analytics/      # Frontend dashboard (React + Vite)
+  ├── cms/                      # Content Management System (Sanity)
+  └── README.md
+  ```
 
-## 🚀 Quick Start
+  ### Backend (`backend-analytics/`)
+  - **Stack**: NestJS, TypeScript, Supabase (DB/Auth), Redis
+  - **Key features**:
+    - Analytics API (CRUD + insights queries)
+    - Supabase authentication and RBAC
+    - Blog management endpoints
+    - Admin endpoints
+    - Sanity integration for CMS content
+  - **Default port**: 3000
 
-### Prerequisites
-- Node.js 16+ dan npm/yarn
-- Supabase account (untuk database & auth)
-- Sanity account (untuk CMS)
-- Redis server (untuk caching)
+  Quick start:
+  ```bash
+  cd backend-analytics
+  npm install
+  npm run start:dev
+  ```
 
-### 1. Clone & Install Dependencies
+  ### Frontend Dashboard (`dashboard-analytics/`)
+  - **Stack**: React, Vite, TypeScript, Redux, Tailwind CSS
+  - **Key features**:
+    - Analytics visualizations (charts, metrics)
+    - Authentication (Supabase)
+    - Admin UI for managing analytics
+    - CMS UI for blog and FAQ management
+    - CSV export for data
+  - **Default port**: 5173
 
-```bash
-# Clone repository
-git clone <repo-url>
-cd supabase
+  Quick start:
+  ```bash
+  cd dashboard-analytics
+  npm install
+  npm run dev
+  ```
 
-# Install semua dependencies
-npm install --workspace
-# atau install per folder:
-cd backend-analytics && npm install
-cd ../dashboard-analytics && npm install
-cd ../cms && npm install
-```
+  ### CMS (`cms/`)
+  - **Stack**: Sanity Studio
+  - **Content types**: Blog posts, FAQ, Authors, Changelog
 
-### 2. Setup Environment Variables
+  Quick start:
+  ```bash
+  cd cms
+  npm install
+  npx sanity start
+  ```
 
-Buat file `.env` di masing-masing folder:
+  ## Quick Start (All services)
 
-**`backend-analytics/.env`:**
-```
-DATABASE_URL=your_supabase_url
-SUPABASE_KEY=your_supabase_key
-REDIS_URL=redis://localhost:6379
-```
+  Prerequisites:
+  - Node.js 16+ and npm or yarn
+  - Supabase account (database and auth)
+  - Sanity account (CMS)
+  - Redis (optional, for caching)
 
-**`dashboard-analytics/.env`:**
-```
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_key
-VITE_SANITY_PROJECT_ID=your_sanity_project_id
-VITE_SANITY_DATASET=production
-```
+  Install dependencies per package:
+  ```bash
+  # From repository root
+  cd backend-analytics && npm install
+  cd ../dashboard-analytics && npm install
+  cd ../cms && npm install
+  ```
 
-**`cms/.env`:**
-```
-SANITY_STUDIO_API_PROJECT_ID=your_sanity_project_id
-SANITY_STUDIO_API_DATASET=production
-```
+  Environment variables (create `.env` files for each service):
 
-### 3. Run Aplikasi
+  `backend-analytics/.env` (example):
+  ```
+  DATABASE_URL=your_supabase_database_url
+  SUPABASE_KEY=your_supabase_service_role_key
+  REDIS_URL=redis://localhost:6379
+  ```
 
-**Terminal 1 - Backend:**
-```bash
-cd backend-analytics
-npm run start:dev
-```
+  `dashboard-analytics/.env` (example):
+  ```
+  VITE_SUPABASE_URL=your_supabase_url
+  VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+  VITE_SANITY_PROJECT_ID=your_sanity_project_id
+  VITE_SANITY_DATASET=production
+  VITE_OPENAI_API_KEY=your_openai_key (set locally or in CI)
+  ```
 
-**Terminal 2 - Frontend:**
-```bash
-cd dashboard-analytics
-npm run dev
-```
+  `cms/.env` (example):
+  ```
+  SANITY_STUDIO_API_PROJECT_ID=your_sanity_project_id
+  SANITY_STUDIO_API_DATASET=production
+  ```
 
-**Terminal 3 - CMS:**
-```bash
-cd cms
-npx sanity start
-```
+  Run services:
 
-## 📊 API Endpoints
+  Terminal 1 — Backend:
+  ```bash
+  cd backend-analytics
+  npm run start:dev
+  ```
 
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| GET | `/analytics` | Ambil semua analytics |
-| POST | `/analytics` | Buat analytics baru |
-| GET | `/analytics/:id` | Ambil analytics by ID |
-| PUT | `/analytics/:id` | Update analytics |
-| DELETE | `/analytics/:id` | Hapus analytics |
-| GET | `/blog` | Ambil semua blog posts |
-| POST | `/blog` | Buat blog post baru |
-| GET | `/admin` | Admin dashboard data |
+  Terminal 2 — Frontend:
+  ```bash
+  cd dashboard-analytics
+  npm run dev
+  ```
 
-## 🔐 Authentication
+  Terminal 3 — CMS:
+  ```bash
+  cd cms
+  npx sanity start
+  ```
 
-Aplikasi menggunakan **Supabase Authentication**:
-- User registration via email/password
-- JWT tokens untuk API requests
-- Role-based access control (RBAC) di admin panel
+  ## API Overview
 
-## 🗄️ Database Schema
+  Common endpoints (examples):
 
-Supabase dengan PostgreSQL:
-- `users` - User profiles
-- `analytics` - Analytics data
-- `blog_posts` - Blog content
-- `insights` - Analytics insights
+  | Method | Endpoint | Description |
+  |--------|----------|-------------|
+  | GET    | `/analytics` | Get all analytics records |
+  | POST   | `/analytics` | Create an analytics record |
+  | GET    | `/analytics/:id` | Get analytics by ID |
+  | PUT    | `/analytics/:id` | Update analytics record |
+  | DELETE | `/analytics/:id` | Delete analytics record |
+  | GET    | `/blog` | Get blog posts |
+  | POST   | `/blog` | Create a blog post |
 
-## 📝 Git Workflow
+  Authentication: the backend uses Supabase Authentication (email/password), issues JWTs for API requests, and implements role-based access control for admin endpoints.
 
-```bash
-# Checkout feature branch
-git checkout -b feature/nama-fitur
+  ## Database (Supabase/Postgres)
 
-# Commit dengan pesan deskriptif
-git commit -m "feat: deskripsi fitur"
+  Suggested tables:
+  - `users` — user profiles
+  - `analytics` — analytics data
+  - `blog_posts` — CMS content stored in Sanity or mirrored in DB
+  - `insights` — precomputed analytics insights
 
-# Push ke remote
-git push origin feature/nama-fitur
+  ## Development Workflow
 
-# Buat pull request untuk review
-```
+  Feature branch workflow:
+  ```bash
+  git checkout -b feature/your-feature
+  # make changes
+  git add .
+  git commit -m "feat: short description"
+  git push origin feature/your-feature
+  ```
 
-## 🛠️ Development Tools
+  Create a pull request on GitHub for review and merge.
 
-- **Testing**: Jest (backend), Vitest (frontend)
-- **Linting**: ESLint
-- **Formatting**: Prettier
-- **API Testing**: REST client (`backend-analytics/api_testing/api.rest`)
+  ## Tools & Testing
 
-## 📚 Dokumentasi Lebih Lanjut
+  - Testing: Jest (backend), Vitest (frontend)
+  - Linting: ESLint
+  - Formatting: Prettier
+  - API testing: use `backend-analytics/api_testing/api.rest`
 
-- [Backend README](./backend-analytics/README.md)
-- [Frontend README](./dashboard-analytics/README.md)
-- [CMS README](./cms/README.md)
+  ## Further Reading
 
-## 🤝 Contributing
+  - See `backend-analytics/README.md` for backend specifics.
+  - See `dashboard-analytics/README.md` for frontend specifics.
+  - See `cms/` for Sanity schemas.
 
-1. Fork repository
-2. Buat feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit changes (`git commit -m 'Add amazing feature'`)
-4. Push ke branch (`git push origin feature/amazing-feature`)
-5. Open Pull Request
+  ## Contributing
 
-## 📄 License
+  1. Fork the repo
+  2. Create a feature branch
+  3. Open a pull request
 
-MIT License - lihat file LICENSE untuk detail
+  ## License
 
----
+  MIT
 
-**Created with ❤️ for analytics & content management**
+  ---
+
+  If you want, I can also:
+  - Add a short `CONTRIBUTING.md` or `DEVELOPMENT.md` in English
+  - Create `.env.example` files for all services
+
+  Would you like me to commit this English README now?
