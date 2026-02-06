@@ -1,0 +1,65 @@
+ada FITUR YANG INGIN DITAMBAHKAN :
+- tempat untuk meninggalkan umpan balik mereka dan melaporkan bug teknis kepada tim dukungan teknis kami
+- menyediakan pusat notifikasi untuk memberi tahu pengguna tentang peringatan penting. Fitur-fitur ini harus modular karena akan digunakan di aplikasi lain juga mungkin di aplikasi utama dan mungkin di email
+- CI/CD pipelines
+
+- OpenTelemetry Logging
+==> NOTES <===
+ CI/CD ready	Bisa dipasang di GitHub Actions untuk auto-test tiap push
+ apakah ketika gue membuat open sourcce itu bisa menghasilkan uang
+
+
+
+
+
+
+
+
+
+
+
+
+https://youtu.be/zM9U5Pq5JBM?si=JbxuBUJIJVSvd8OW
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==> question <== 
+tapi dengan Supabase session check user jadi tidak bisa menghakses "/" kalo dia punya session, karena ada auto-redirect ke /dashboard ketiap kali di akses "/" karena ada session, apakah ini gapapa ?        
+
+
+http://45.11.57.248/movie-6-underground-2019-webdl/
+
+Groq ai
+Groq, Inc. merupakan perusahaan kecerdasan buatan (AI) Amerika yang membangun Sirkuit terintegrasi khusus aplikasi akselerator AI (ASIC) yang mereka sebut Unit Pemrosesan Bahasa (LPU) dan perangkat keras yang terhubung dengan tujuan untuk mempercepat kinerja inferensi beban kerja AI.
+
+Iya, itu salah satu kunci besar dalam bergerak maju.
+Ragu itu normal — dia muncul sebagai tanda kita sedang keluar dari zona nyaman atau memasuki wilayah yang belum pernah kita lalui.
+
+Kalau kita tunggu sampai rasa ragu hilang sepenuhnya, kemungkinan besar kita nggak akan pernah mulai.
+Triknya adalah mengakui ragunya, tapi tetap melangkah sambil membawa ragu itu di tas punggung.
+Mungkin berat di awal, tapi setiap langkah memberi bukti bahwa kita *bisa*, dan ragu perlahan jadi lebih ringan.
+
+Kalau mau, aku bisa kasih beberapa cara praktis buat “jalan bareng” rasa ragu tanpa terjebak di dalamnya.
+Mau aku lanjut ke situ?
