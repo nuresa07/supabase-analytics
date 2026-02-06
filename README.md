@@ -183,9 +183,3 @@
   MIT
 
   ---
-
-  If you want, I can also:
-  - Add a short `CONTRIBUTING.md` or `DEVELOPMENT.md` in English
-  - Create `.env.example` files for all services
-
-  Would you like me to commit this English README now?
